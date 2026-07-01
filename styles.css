@@ -1,3 +1,17 @@
+@font-face {
+    font-family: 'ComicShanns';
+    src: url('assets/fonts/ComicShannsMonoNerdFontMono-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ComicShanns';
+    src: url('assets/fonts/ComicShannsMonoNerdFontMono-Bold.otf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+}
+
 * {
     box-sizing: border-box;
     padding: 0;
@@ -24,25 +38,30 @@
 /**/
 
 body {
+    font-family: 'ComicShanns', monospace;
     background-image: url(assets/back2.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
+    min-height: 100dvh;
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     min-height: 100vh;
+    padding-bottom: 50px;
 }
 
 .grid_container {
+    border-radius: 20px;
     display: grid;
-    grid-template-rows: 1fr;
+    grid-template-rows: 1fr auto;
     grid-template-columns: 200px 1fr 200px;
     width: 90%;
     max-width: 1200px;
-    height: 70vh;
-    min-height: 100vh;
+    height: 80vh;
+    overflow: hidden;
     grid-template-areas:
         "nav main aside"
         "footer footer footer";
@@ -54,16 +73,85 @@ body {
     padding: 20px;
 }
 
+.nav_profile-picture {
+    max-width: 100%;
+    border: 10px solid transparent;
+    border-image-source: url(assets/borderme.gif);
+    border-image-slice: 20;
+    border-image-repeat: stretch;
+}
+
 .main {
     grid-area: main;
     background-color: #fff;
     padding: 20px;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.main img  {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.main::-webkit-scrollbar {
+    width: 8px; 
+}
+
+.main::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 0 12px 12px 0;
+}
+
+.main::-webkit-scrollbar-thumb {
+    background: rgba(68, 136, 238, 0.4); 
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.main::-webkit-scrollbar-thumb:hover {
+    background: rgba(34, 102, 204, 0.7);
 }
 
 .aside {
     grid-area: aside;
     background-color: #f4f4f4;
-    padding: 20px;
+    padding: 20px 0;
+}
+
+.aside_socials-list {
+    width: 95%;
+    margin: 15px auto 0 auto;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    list-style-type: none;
+}
+
+.aside_socials-list-item {
+    width: 100%;
+}
+
+.aside_socials-link {
+    display: block;
+    width: 100%;
+    background-color: #48e;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    padding: 2px 0;
+    transition: background 0.2s ease;
+}
+
+.aside_socials-link:hover {
+    background-color: #26c;
+}
+
+.aside h3, .aside p {
+    padding: 0 20px;
+    margin-bottom: 10px;
 }
 
 .footer {
@@ -72,4 +160,14 @@ body {
     color: white;
     padding: 15px;
     text-align: center;
+}
+
+.nav, .aside {
+    background-color: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 
+        inset 0  0.5px 0 rgba(255, 255, 255, 0.6),
+        inset 0  -10px 20px rgba(255, 255, 255, 0.1),
+        0 8px 32px 0 rgba(0, 0, 0, 0.15);
 }
