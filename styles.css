@@ -28,7 +28,7 @@
 .header_logo-container {
     display: flex;
     justify-content: center;
-    margin-top: 50px;
+    margin-top: 30px;
     margin-bottom: 10px;
 }
 
@@ -43,7 +43,8 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
-    min-height: 100dvh;
+    background-position: center;
+    min-height: 200dvh;
     overflow-y: auto;
     display: flex;
     flex-direction: column;
@@ -60,7 +61,7 @@ body {
     grid-template-columns: 200px 1fr 200px;
     width: 90%;
     max-width: 1200px;
-    height: 80vh;
+    height: 160vh;
     overflow: hidden;
     grid-template-areas:
         "nav main aside"
